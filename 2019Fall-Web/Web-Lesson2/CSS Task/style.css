@@ -1,0 +1,10 @@
+.row {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.column {
+    flex-direction: column;
+    flex: 33.33%;
+    padding:  5px;
+}
