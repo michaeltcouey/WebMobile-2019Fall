@@ -1,0 +1,65 @@
+.game {
+    width: 300px;
+    height: 475px;
+    background: #F6FE01;
+    margin-top: 60px;
+    padding: 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.52), 0 2px 5px rgba(0, 0, 0, 0.54);
+    *zoom: 1;
+}
+.game .screen {
+    width: 96%;
+    height: 75px;
+    background: #ecf0f1;
+    margin: 10px auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.34);
+}
+.game .screen p {
+    font-size: 20px;
+    color: #555;
+    text-align: center;
+    margin-right: 10px;
+}
+.game .screen #results {
+    font-size: 40px;
+}
+.game .screen #choices {
+    font-size: 25px;
+}
+.game .buttons {
+    width: 96%;
+    height: 250px;
+    margin: 10px auto;
+    border-radius: 4px;
+}
+
+.game .buttons .button {
+    background: #BCC301;
+    float: left;
+    margin: 6px 9px;
+    height: 75px;
+    width: 75px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.34);
+    font-size: 40px;
+    font-weight: 400;
+    color: #f9f9f9;
+    text-align: center;
+    padding-top: 5px;
+}
+.game .buttons .play {
+    float: none;
+    clear: both;
+    width: 95%;
+    margin: 6px 9px;
+    padding-top: 8px;
+}
+
+.game .buttons .clear {
+     float: none;
+     clear: both;
+     width: 95%;
+     margin: 6px 9px;
+    padding-top: 8px;
+ }
