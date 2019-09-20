@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  // 1. write Typescript code in "app.component.ts" to work with calculator
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4 col-lg-offset-4 calculator">
+      <br>
+      <div class="screen">
+        <p id="equation"></p>
+        <p id="number">00</p>
+      </div>
+      <div class="buttons">
+        <div class="button"       (click)="buttonClick('1')">1</div>
+        <div class="button"       (click)="buttonClick('2')">2</div>
+        <div class="button"       (click)="buttonClick('3')">3</div>
+        <div class="button op"    (click)="buttonClick('/')">/</div>
+        <div class="button"       (click)="buttonClick('4')">4</div>
+        <div class="button"       (click)="buttonClick('5')">5</div>
+        <div class="button"       (click)="buttonClick('6')">6</div>
+        <div class="button op"    (click)="buttonClick('*')">*</div>
+        <div class="button"       (click)="buttonClick('7')">7</div>
+        <div class="button"       (click)="buttonClick('8')">8</div>
+        <div class="button"       (click)="buttonClick('9')">9</div>
+        <div class="button op"    (click)="buttonClick('+')">+</div>
+        <div class="button"       (click)="buttonClick('0')">0</div>
+        <div class="button eq"      (click)="buttonClick('=')">=</div>
+        <div class="button clear"      (click)="buttonClick('Clear')">Clr</div>
+        <div class="button op"    (click)="buttonClick('-')">-</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

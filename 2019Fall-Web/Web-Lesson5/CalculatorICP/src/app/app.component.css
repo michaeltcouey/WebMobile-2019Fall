@@ -1,0 +1,64 @@
+.calculator {
+  width: 400px;
+  height: 500px;
+  background: rgba(28, 123, 133, 0.71);
+  margin-top: 80px;
+  padding: 0;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.52), 0 2px 5px rgba(0, 0, 0, 0.54);
+  *zoom: 1;
+}
+
+.calculator .screen {
+  width: 96%;
+  height: 70px;
+  background: #ecf0f1;
+  margin: 10px auto;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.34);
+}
+.calculator .screen p {
+  font-size: 20px;
+  color: #555;
+  text-align: right;
+  margin-right: 10px;
+}
+.calculator .screen #equation {
+  font-size: 15px;
+}
+.calculator .screen #number {
+  font-size: 25px;
+}
+.calculator .buttons {
+  width: 96%;
+  height: 400px;
+  margin: 10px auto;
+  border-radius: 4px;
+}
+.calculator .buttons .button {
+  background: #aabbcc;
+  float: left;
+  margin: 6px 6px;
+  height: 70px;
+  width: 70px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.32), 0 1px 2px rgba(0, 0, 0, 0.34);
+  font-size: 40px;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  padding-top: 10px;
+}
+.calculator .buttons .button:hover {
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
+  cursor: pointer;
+}
+.calculator .buttons .op {
+  margin-left: 25px;
+  background: #ccaabb;
+}
+.calculator .buttons .eq {
+  background: #aaccbb;
+}
+.calculator .buttons .clear {
+  background: #be3b2c;
+}
