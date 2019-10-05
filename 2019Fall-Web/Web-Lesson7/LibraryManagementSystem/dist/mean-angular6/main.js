@@ -72,7 +72,6 @@ var ApiService = /** @class */ (function () {
         // return an observable with a user-facing error message
         return Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["throwError"])('Something bad happened; please try again later.');
     };
-    ;
     ApiService.prototype.extractData = function (res) {
         var body = res;
         return body || {};
@@ -282,7 +281,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n\n.example-full-width:nth-last-child() {\n  margin-bottom: 10px;\n}\n\n.button-row {\n  margin: 10px 0;\n}\n"
+module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  width: 100%;\n}\n\n.example-full-width {\n  width: 100%;\n}\n\n.example-full-width:nth-last-child {\n  margin-bottom: 10px;\n}\n\n.button-row {\n  margin: 10px 0;\n}\n"
 
 /***/ }),
 
@@ -329,12 +328,6 @@ var BookCreateComponent = /** @class */ (function () {
         this.router = router;
         this.api = api;
         this.formBuilder = formBuilder;
-        this.isbn = '';
-        this.title = '';
-        this.description = '';
-        this.author = '';
-        this.publisher = '';
-        this.published_year = '';
     }
     BookCreateComponent.prototype.ngOnInit = function () {
         this.bookForm = this.formBuilder.group({
@@ -478,7 +471,7 @@ module.exports = ".example-form {\n  min-width: 150px;\n  max-width: 500px;\n  w
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- write code to edit and save book i this component -->\n"
+module.exports = "<!-- write code to edit and save book i this component -->\n<div class=\"button-row\">\n  <a mat-raised-button color=\"primary\" [routerLink]=\"['/books']\">\n    <mat-icon>list</mat-icon>\n  </a>\n</div>\n<form [formGroup]=\"updateBookForm\" (ngSubmit)=\"onFormSubmit( updateBookForm.value.id , updateBookForm.value)\">\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"ISBN\" formControlName=\"isbn\"\n           [errorStateMatcher]=\"matcher\">\n    <mat-error>\n      <span *ngIf=\"!updateBookForm.get('isbn').valid && updateBookForm.get('isbn').touched\">Please enter ISBN</span>\n    </mat-error>\n  </mat-form-field>\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"Title\" formControlName=\"title\"\n           [errorStateMatcher]=\"matcher\">\n    <mat-error>\n      <span *ngIf=\"!updateBookForm.get('title').valid && updateBookForm.get('title').touched\">Please enter Book Title</span>\n    </mat-error>\n  </mat-form-field>\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"Author\" formControlName=\"author\"\n           [errorStateMatcher]=\"matcher\">\n    <mat-error>\n      <span *ngIf=\"!updateBookForm.get('author').valid && updateBookForm.get('author').touched\">Please enter Book Author</span>\n    </mat-error>\n  </mat-form-field>\n  <mat-form-field class=\"example-full-width\">\n    <textarea matInput placeholder=\"Description\" formControlName=\"description\"\n              [errorStateMatcher]=\"matcher\"></textarea>\n    <mat-error>\n      <span *ngIf=\"!updateBookForm.get('description').valid && updateBookForm.get('description').touched\">Please enter Book Description</span>\n    </mat-error>\n  </mat-form-field>\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"Publisher\" formControlName=\"publisher\"\n           [errorStateMatcher]=\"matcher\">\n    <mat-error>\n      <span *ngIf=\"!updateBookForm.get('publisher').valid && updateBookForm.get('publisher').touched\">Please enter Publisher</span>\n    </mat-error>\n  </mat-form-field>\n  <mat-form-field class=\"example-full-width\">\n    <input matInput placeholder=\"Published Year\" formControlName=\"published_year\"\n           [errorStateMatcher]=\"matcher\">\n    <mat-error>\n      <span *ngIf=\"!updateBookForm.get('published_year').valid && updateBookForm.get('published_year').touched\">Please enter Published Year</span>\n    </mat-error>\n  </mat-form-field>\n  <div class=\"button-row\">\n    <button type=\"submit\" [disabled]=\"!updateBookForm.valid\" mat-raised-button color=\"primary\">\n      <mat-icon>save</mat-icon>\n    </button>\n  </div>\n</form>\n"
 
 /***/ }),
 
@@ -515,8 +508,48 @@ var BookEditComponent = /** @class */ (function () {
         this.route = route;
         this.api = api;
         this.formBuilder = formBuilder;
+        this.book = {};
     }
     BookEditComponent.prototype.ngOnInit = function () {
+        this.getBookDetails(this.route.snapshot.params['id']);
+        this.updateBookForm = this.formBuilder.group({
+            'id': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'isbn': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'title': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'description': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'author': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'publisher': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+            'published_year': [null, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+        });
+    };
+    BookEditComponent.prototype.getBookDetails = function (id) {
+        var _this = this;
+        this.api.getBook(id)
+            .subscribe(function (data) {
+            console.log(data);
+            _this.book = data;
+            _this.updateBookForm = _this.formBuilder.group({
+                'id': [data._id, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+                'isbn': [data.isbn, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+                'title': [data.title, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+                'description': [data.description, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+                'author': [data.author, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+                'publisher': [data.publisher, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required],
+                'published_year': [data.published_year, _angular_forms__WEBPACK_IMPORTED_MODULE_3__["Validators"].required]
+            });
+        });
+    };
+    BookEditComponent.prototype.onFormSubmit = function (id, data) {
+        var _this = this;
+        this.api.updateBook(id, data)
+            .subscribe(function (res) {
+            console.log('before new_id');
+            var new_id = res['_id'];
+            console.log('before navigating');
+            _this.router.navigate(['/book-details', new_id]);
+        }, function (err) {
+            console.log(err);
+        });
     };
     BookEditComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -697,7 +730,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\VIJAYA\Desktop\Temp\Web_Lesson6\Web_Lesson6_withoutNodeModules\LibraryManagementSystem\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\mcouey\Documents\GitHub\WebMobile-2019Fall\2019Fall-Web\Web-Lesson7\LibraryManagementSystem\src\main.ts */"./src/main.ts");
 
 
 /***/ })
