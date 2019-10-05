@@ -45,9 +45,9 @@ export class BookEditComponent implements OnInit {
     this.api.updateBook(id, data)
       .subscribe(res => {
         console.log('before new_id');
-        let new_id = res['_id'];
+        let newid = res['_id'];
         console.log('before navigating');
-        this.router.navigate(['/book-details', new_id]);
+        this.router.navigate(['/book-details', newid]);
       }, (err) => {
         console.log(err);
       });
