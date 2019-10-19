@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {HeaderComponent} from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { SearchRecipeComponent } from './search-recipe/search-recipe.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

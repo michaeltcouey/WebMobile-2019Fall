@@ -1,11 +1,12 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpClientModule, HttpClientJsonpModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-search-recipe',
   templateUrl: './search-recipe.component.html',
   styleUrls: ['./search-recipe.component.css']
 })
+
 export class SearchRecipeComponent implements OnInit {
   @ViewChild('recipe') recipes: ElementRef;
   @ViewChild('place') places: ElementRef;
