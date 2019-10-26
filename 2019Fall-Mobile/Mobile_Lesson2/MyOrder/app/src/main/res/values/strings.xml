@@ -1,0 +1,29 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">My Order</string>
+    <string name="name">Name</string>
+    <string name="toppings">Toppings</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="sausage">Sausage</string>
+    <string name="ham">Ham</string>
+    <string name="mozzarella">Mozzarella</string>
+    <string name="black_olives">Black Olives</string>
+    <string name="mushrooms">Mushrooms</string>
+    <string name="quantity">How many would you like?</string>
+    <string name="initial_quantity_value">2</string>
+    <string name="order">Order</string>
+    <string name="order_summary_name">Name:<xliff:g example="Vijaya" id="name">%s</xliff:g></string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="order_summary_pepperoni">Add Peperoni? <xliff:g example="yes" id="addPepperoni">%s</xliff:g></string>
+    <string name="order_summary_sausage">Add Sausage? <xliff:g example="yes" id="addSausage">%s</xliff:g></string>
+    <string name="order_summary_ham">Add Ham? <xliff:g example="yes" id="addHam">%s</xliff:g></string>
+    <string name="order_summary_mozzarella">Add Mozzarella? <xliff:g example="yes" id="addMozzarella">%s</xliff:g></string>
+    <string name="order_summary_mushrooms">Add Mushrooms? <xliff:g example="yes" id="addMushrooms">%s</xliff:g></string>
+    <string name="order_summary_black_olives">Add Black Olives? <xliff:g example="yes" id="addBlack_Olives">%s</xliff:g></string>
+    <string name="order_summary_quantity">Quantity: <xliff:g example="2" id="quantity">%d</xliff:g></string>
+    <string name="order_summary_total_price">Total: $ <xliff:g example="10" id="price">%.2f</xliff:g></string>
+    <string name="thank_you">Thank you!</string>
+    <string name="too_many_pizzas">Please select less than thirty Pizzas</string>
+    <string name="too_little_pizzas">Please select at least one Pizza</string>
+    <string name="title_activity_order_summary">OrderSummary</string>
+</resources>
